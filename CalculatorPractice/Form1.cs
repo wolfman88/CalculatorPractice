@@ -37,7 +37,6 @@ namespace CalculatorPractice
       else
         textbox_Result.Text = textbox_Result.Text + button.Text;
     }
-
     private void operatiorClick(object sender, EventArgs e)
     {
       Button button = (Button)sender;
