@@ -56,7 +56,6 @@ namespace CalculatorPractice
         isOperationPerformed = true;
       }
     }
-
     private void equalsClick(object sender, EventArgs e)
     {
       switch (operationPerformed)
@@ -88,6 +87,73 @@ namespace CalculatorPractice
     private void btnClearError_Click(object sender, EventArgs e)
     {
       textbox_Result.Text = "0";
+    }
+
+    private void numKeyDown(object sender, KeyEventArgs e)
+    {
+      Button button = (Button)sender;
+      switch (textbox_Result.Text)
+      {
+        case ".":
+          btnDecimal.PerformClick();
+          break;
+        case "0":
+          btn0.PerformClick();
+          break;
+        case "1":
+          btn1.PerformClick();
+          break;
+        case "2":
+          //textbox_Result.Text = "2";
+          btn2.PerformClick();
+          break;
+        case "3":
+          btn3.PerformClick();
+          break;
+        case "4":
+          btn4.PerformClick();
+          break;
+        case "5":
+          btn5.PerformClick();
+          break;
+        case "6":
+          btn6.PerformClick();
+          break;
+        case "7":
+          btn7.PerformClick();
+          break;
+        case "8":
+          btn8.PerformClick();
+          break;
+        case "9":
+          btn9.PerformClick();
+          break;
+        case "+":
+          btnAddtion.PerformClick();
+          break;
+        case "-":
+          btnSubtraction.PerformClick();
+          break;
+        case "*":
+          btnMultiplication.PerformClick();
+          break;
+        case "/":
+          btnDivision.PerformClick();
+          break;
+        case "=":
+          btnEquals.PerformClick();
+          break;
+        default:
+          break;
+      }
+    }
+
+    private void Form1_KeyDown(object sender, KeyEventArgs e)
+    {
+      /*if (e.KeyCode == Keys.Escape)
+      {
+        this.Close();
+      }*/
     }
   }
 }
