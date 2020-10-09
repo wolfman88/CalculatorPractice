@@ -21,7 +21,7 @@ namespace CalculatorPractice
     }
     private void Form1_Load(object sender, EventArgs e)
     {
-
+      btnEquals.Focus();
     }
     private void button_Click(object sender, EventArgs e)
     {
@@ -83,64 +83,64 @@ namespace CalculatorPractice
     {
       textbox_Result.Text = "0";
       resultValue = 0;
+      labelCurrentOperation.Text = "";
     }
     private void btnClearError_Click(object sender, EventArgs e)
     {
       textbox_Result.Text = "0";
+      labelCurrentOperation.Text = "";
     }
 
-    private void numKeyDown(object sender, KeyEventArgs e)
+    private void Form1_KeyDown(object sender, KeyEventArgs e)
     {
-      Button button = (Button)sender;
-      switch (textbox_Result.Text)
+      switch (e.KeyCode)
       {
-        case ".":
+        case Keys.Decimal:
           btnDecimal.PerformClick();
           break;
-        case "0":
+        case Keys.NumPad0:
           btn0.PerformClick();
           break;
-        case "1":
+        case Keys.NumPad1:
           btn1.PerformClick();
           break;
-        case "2":
-          //textbox_Result.Text = "2";
+        case Keys.NumPad2:
           btn2.PerformClick();
           break;
-        case "3":
+        case Keys.NumPad3:
           btn3.PerformClick();
           break;
-        case "4":
+        case Keys.NumPad4:
           btn4.PerformClick();
           break;
-        case "5":
+        case Keys.NumPad5:
           btn5.PerformClick();
           break;
-        case "6":
+        case Keys.NumPad6:
           btn6.PerformClick();
           break;
-        case "7":
+        case Keys.NumPad7:
           btn7.PerformClick();
           break;
-        case "8":
+        case Keys.NumPad8:
           btn8.PerformClick();
           break;
-        case "9":
+        case Keys.NumPad9:
           btn9.PerformClick();
           break;
-        case "+":
+        case Keys.Add:
           btnAddtion.PerformClick();
           break;
-        case "-":
+        case Keys.Subtract:
           btnSubtraction.PerformClick();
           break;
-        case "*":
+        case Keys.Multiply:
           btnMultiplication.PerformClick();
           break;
-        case "/":
+        case Keys.Divide:
           btnDivision.PerformClick();
           break;
-        case "=":
+        case Keys.Return:
           btnEquals.PerformClick();
           break;
         default:
@@ -148,12 +148,14 @@ namespace CalculatorPractice
       }
     }
 
-    private void Form1_KeyDown(object sender, KeyEventArgs e)
+    private void Form1_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
     {
-      /*if (e.KeyCode == Keys.Escape)
-      {
-        this.Close();
-      }*/
+      MessageBox.Show(e.KeyCode.ToString());
+    }
+
+    private void Form1_KeyPress(object sender, KeyPressEventArgs e)
+    {
+      MessageBox.Show(e.KeyChar.ToString());
     }
   }
 }
